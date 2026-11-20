@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dhanush kumar R – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#050507;--ink:#dcdce0;--mute:rgba(255,255,255,.58);--faint:rgba(255,255,255,.34);--line:rgba(255,255,255,.12);--accent:#36d67e;--lav:#b9abff;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lav);outline-offset:3px}
+#hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;padding-top:env(safe-area-inset-top,0px)}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+#ov{position:absolute;pointer-events:none;will-change:transform;--S:1;--pw:900px;--ph:600px}
+#ov a,#ov button{pointer-events:auto}
+.nav{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:0 calc(28px*var(--S));font-size:calc(16px*var(--S) + 3px)}
+.mark{display:flex;align-items:center;gap:10px;font-weight:600;color:#fff}
+.mark i{width:14px;height:14px;background:#fff;display:block;border-radius:2px}
+.nav ul{display:flex;gap:calc(30px*var(--S) + 6px);list-style:none;color:var(--mute)}
+.nav ul a:hover,.nav .hire:hover{color:#fff}
+.nav .hire{color:var(--mute)}
+.panel{position:absolute;left:0;right:0;bottom:0}
+.eye{position:absolute;left:4.2%;top:13.5%;font-size:calc(11px*var(--S) + 2px);letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+h1{position:absolute;left:4.2%;top:21%;font-weight:500;font-size:min(calc(var(--pw)*.078),calc(var(--ph)*.2));letter-spacing:-.045em;line-height:.97;background:linear-gradient(#dcdce0,#bdbdc3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{position:absolute;left:4.2%;top:56%;max-width:min(560px,60%);font-size:calc(15px*var(--S) + 3px);line-height:1.5;color:var(--mute)}
+.cta{position:absolute;left:4.2%;top:74%;display:flex;gap:22px;align-items:center}
+.pill{background:#e9e9ee;color:#08080a;border-radius:6px;padding:10px 20px;font-weight:500;font-size:14px;transition:background .2s,color .2s}
+.pill:hover{background:var(--accent)}
+.lnk{font-size:14px;color:#fff}.lnk:hover{text-decoration:underline}
+.foot{position:absolute;left:4.2%;right:4.2%;bottom:3.5%;display:flex;justify-content:space-between;font-size:calc(11px*var(--S) + 1px);color:var(--faint)}
+@media (max-aspect-ratio:1/1){.eye{top:6%}h1{top:12%;font-size:min(calc(var(--pw)*.17),calc(var(--ph)*.12))}.sub{top:36%;max-width:86%}.cta{top:50%}.nav ul{display:none}}
+main{max-width:1080px;margin:0 auto;padding:0 clamp(20px,5.5vw,48px)}
+section{padding:clamp(72px,11vw,140px) 0 0}
+h2{font-weight:500;font-size:clamp(32px,4.6vw,52px);letter-spacing:-.035em;line-height:1.05;color:#ececf0;margin-bottom:28px}
+.lead{max-width:640px;color:var(--mute);font-size:18px}
+.glass{background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.015) 40%),#101014;border:1px solid var(--line);border-top-color:rgba(255,255,255,.26);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 60px -30px #000}
+.proj{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(20px,4vw,56px);padding:clamp(24px,4vw,48px)}
+.proj h3{font-size:26px;font-weight:500;letter-spacing:-.03em;line-height:1.15;color:#fff;margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span,.chips span{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--mute)}
+.proj ul{list-style:none;display:grid;gap:14px;color:var(--mute)}
+.proj li{padding-left:18px;position:relative}
+.proj li:before{content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--lav)}
+.proj li b{color:#fff;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.grid .glass{padding:26px}
+.grid h3{font-size:15px;font-weight:500;color:#fff;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.row{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row time{color:var(--faint);font-size:14px}
+.row h3{font-weight:500;color:#fff;font-size:18px}
+.row p{color:var(--mute);font-size:15px}
+.contact{display:grid;gap:4px;margin-top:8px}
+.contact a{font-size:clamp(20px,3.4vw,34px);letter-spacing:-.03em;color:#fff;width:fit-content;border-bottom:1px solid var(--line);padding:6px 0;transition:color .2s,border-color .2s}
+.contact a:hover{color:var(--lav);border-color:var(--lav)}
+footer{padding:80px 0 48px;text-align:center;color:var(--faint);font-size:13px}
+@media (max-width:760px){.proj{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.static #hero{background:radial-gradient(900px 500px at 30% 30%,#1b1b24,#050507)}
+</style>
+</head>
+<body>
+<header id="hero">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div id="ov">
+    <div class="nav">
+      <a class="mark" href="#top"><i></i>Dhanush kumar R</a>
+      <ul><li><a href="#about">Summary</a></li><li><a href="#project">Project</a></li><li><a href="#skills">Skills</a></li><li><a href="#education">Education</a></li><li><a href="#interests">Interests</a></li></ul>
+      <a class="hire" href="#contact">Contact</a>
+    </div>
+    <div class="panel" id="top">
+      <div class="eye">Electronics &amp; Communication Engineer</div>
+      <h1>Dhanush<br>kumar R</h1>
+      <p class="sub">Python, SQL and embedded systems. I build IoT devices that sense, decide and send an alert in under a second.</p>
+      <div class="cta"><a class="pill" href="#project">See my project</a><a class="lnk" href="#contact">Get in touch</a></div>
+      <div class="foot"><span>Kanniyakumari, Tamil Nadu</span><span>Open to IT support, software and technical roles</span></div>
+    </div>
+  </div>
+</header>
+<main>
+  <section id="about">
+    <h2>Professional summary</h2>
+    <p class="lead">Electronics and Communication Engineering graduate with foundational knowledge in Python, SQL, HTML, and object-oriented programming concepts. Familiar with embedded systems and basic software development practices. Possesses strong analytical, communication, and problem-solving skills with an interest in IT support, software development, customer support, and technical roles.</p>
+  </section>
+
+  <section id="project">
+    <h2>Human Presence Detection</h2>
+    <article class="glass proj">
+      <div>
+        <p class="lead" style="font-size:16px">An IoT system that helps rescue teams find people buried in a landslide.</p>
+        <div class="tags"><span>ESP32</span><span>Embedded C</span><span>Arduino IDE</span><span>Blynk IDE</span></div>
+      </div>
+      <ul>
+        <li><b>Heartbeat detection</b> using radio and infrared signals to find buried individuals with high precision.</li>
+        <li><b>Acoustic sensor</b> picks up breathing and distress sounds from beneath the soil, improving reliability.</li>
+        <li><b>GPS tagging</b> gives rescue teams each victim’s exact position in real time.</li>
+        <li><b>ESP32 core</b> coordinates the sensors, motor control and IoT communication.</li>
+        <li><b>Live alerts</b> reach rescue authorities with response latency under one second.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Core competencies</h2>
+    <div class="grid">
+      <div class="glass"><h3>Full Stack &amp; Programming</h3><div class="chips"><span>Python</span><span>Object-Oriented Programming (OOP)</span><span>HTML</span><span>Java basics</span><span>C++ basics</span></div></div>
+      <div class="glass"><h3>Databases &amp; tools</h3><div class="chips"><span>SQL</span><span>Git</span><span>VS Code</span><span>Linux basics</span></div></div>
+      <div class="glass"><h3>Electronics &amp; hardware</h3><div class="chips"><span>Embedded systems</span><span>Microcontroller Basics</span><span>RF Communication Fundamentals</span><span>Electronic circuits</span></div></div>
+      <div class="glass"><h3>Professional</h3><div class="chips"><span>Analytical Problem Solving</span><span>Design Thinking</span><span>MS Excel Basics</span><span>Computer Literacy</span><span>Cross-Functional &amp; Technical Communication</span><span>Data-Driven Decision Making</span></div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education &amp; certification</h2>
+    <div>
+      <div class="row"><time>May 2026</time><div><h3>Python Full Stack Developer</h3><p>PySpiders, Bangalore</p></div></div>
+      <div class="row"><time>2025</time><div><h3>B.E. Electronics and Communication</h3><p>Hindusthan College of Engineering and Technology, Coimbatore. CGPA 6.51</p></div></div>
+      <div class="row"><time>2021</time><div><h3>Higher Secondary</h3><p>St. Aloysius Higher Secondary School, Marthandan Thurai. 63%</p></div></div>
+    </div>
+    <div class="grid" id="interests" style="margin-top:36px;scroll-margin-top:24px"><div class="glass"><h3>Languages</h3><div class="chips"><span>English</span><span>Tamil</span><span>Malayalam</span></div></div><div class="glass"><h3>Interests</h3><div class="chips"><span>Technology</span><span>Web Design</span><span>Travel</span><span>Music</span><span>Football</span></div></div></div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s talk.</h2>
+    <div class="contact">
+      <a href="mailto:dhanushkumarnjr@gmail.com">dhanushkumarnjr@gmail.com</a>
+      <a href="tel:+918608810025">+91 86088 10025</a>
+      <a href="https://linkedin.com/in/danush-kumar2004" rel="noopener">linkedin.com/in/danush-kumar2004</a>
+      <p class="lead" style="margin-top:20px;font-size:15px">Tamil Nadu, Kanniyakumari, India – 560076</p>
+    </div>
+  </section>
+  <footer>© Dhanush kumar R · Kanniyakumari, Tamil Nadu, India</footer>
+</main>
+
+<script type="module">
+const hero=document.getElementById('hero');
+try{
+const THREE=await import('three');
+const {RoomEnvironment}=await import('three/addons/environments/RoomEnvironment.js');
+const cv=document.getElementById('gl'),ov=document.getElementById('ov');
+const R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:false});
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+R.toneMapping=THREE.ACESFilmicToneMapping;
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x050507);
+scene.environment=new THREE.PMREMGenerator(R).fromScene(new RoomEnvironment(),.04).texture;
+scene.environmentIntensity=.42;
+const key=new THREE.DirectionalLight(0xdfe8ff,1.3);scene.add(key);
+const cam=new THREE.PerspectiveCamera(30,1,1,6000);
+const group=new THREE.Group();scene.add(group);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const uMouse={value:new THREE.Vector3()},uGlow={value:0};
+let W,H,S,bw,bh,navH,panelH,panelTop,portrait,cells=[],nav;
+const B={TL:[0,0],TR:[1,0],BL:[0,1],BR:[1,1],tAB:[.22,0],tBC:[.515,0],tCE:[.84,0],bAD:[.34,1],bDE:[.865,1],J0:[.385,.72],J1:[.48,.62],J2:[.716,.49]};
+const DEF={A:['TL','tAB','J0','bAD','BL'],B:['tAB','tBC','J1','J0'],C:['tBC','tCE','J2','J1'],D:['J0','J1','J2','bDE','bAD'],E:['tCE','TR','BR','bDE','J2']};
+const PH={};Object.keys(B).forEach((k,i)=>PH[k]=[i*1.7,i*2.3,10+(i*3.1)%10]);
+function mat(){
+  const m=new THREE.MeshPhysicalMaterial({color:0x17171b,roughness:.36,clearcoat:.7,clearcoatRoughness:.12,specularIntensity:.7,iridescence:.55,iridescenceIOR:1.3,iridescenceThicknessRange:[250,650]});
+  m.onBeforeCompile=s=>{
+    s.uniforms.uMouse=uMouse;s.uniforms.uGlow=uGlow;s.uniforms.uR={value:300};
+    s.vertexShader=s.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vW;').replace('#include <begin_vertex>','#include <begin_vertex>\nvW=(modelMatrix*vec4(transformed,1.)).xyz;');
+    s.fragmentShader=s.fragmentShader.replace('#include <common>','#include <common>\nvarying vec3 vW;uniform vec3 uMouse;uniform float uGlow,uR;').replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\n{float d=length(vW.xy-uMouse.xy);totalEmissiveRadiance+=vec3(.42,.37,.62)*.16*uGlow*exp(-1.6*(d/uR)*(d/uR));}');
+    m.userData.sh=s;
+  };
+  return m;
+}
+function inset(p,d){ // inward offset of polygon (px, y-up)
+  let a=0;for(let i=0;i<p.length;i++){const q=p[(i+1)%p.length];a+=p[i][0]*q[1]-q[0]*p[i][1]}
+  const sg=a>0?1:-1,o=[];
+  for(let i=0;i<p.length;i++){
+    const a0=p[(i+p.length-1)%p.length],b=p[i],c=p[(i+1)%p.length];
+    const n=(u,v)=>{const dx=v[0]-u[0],dy=v[1]-u[1],l=Math.hypot(dx,dy)||1;return[-dy/l*sg,dx/l*sg]};
+    const n1=n(a0,b),n2=n(b,c);let mx=n1[0]+n2[0],my=n1[1]+n2[1];const ml=Math.hypot(mx,my)||1;mx/=ml;my/=ml;
+    const k=d/Math.max(.35,mx*n1[0]+my*n1[1]);o.push([b[0]+mx*k,b[1]+my*k]);
+  }
+  return o;
+}
+function geo(poly){
+  const gap=14*S/2,bev=2.6*S,p=inset(poly,gap+bev);
+  const cx=p.reduce((s,v)=>s+v[0],0)/p.length,cy=p.reduce((s,v)=>s+v[1],0)/p.length;
+  const q=p.map(v=>[v[0]-cx,v[1]-cy]),sh=new THREE.Shape(),r=20*S;
+  q.forEach((v,i)=>{
+    const a=q[(i+q.length-1)%q.length],c=q[(i+1)%q.length];
+    const la=Math.hypot(a[0]-v[0],a[1]-v[1]),lc=Math.hypot(c[0]-v[0],c[1]-v[1]),rr=Math.min(r,la*.4,lc*.4);
+    const p1=[v[0]+(a[0]-v[0])/la*rr,v[1]+(a[1]-v[1])/la*rr],p2=[v[0]+(c[0]-v[0])/lc*rr,v[1]+(c[1]-v[1])/lc*rr];
+    i?sh.lineTo(p1[0],p1[1]):sh.moveTo(p1[0],p1[1]);sh.quadraticCurveTo(v[0],v[1],p2[0],p2[1]);
+  });
+  sh.closePath();
+  return {g:new THREE.ExtrudeGeometry(sh,{depth:13*S,bevelEnabled:true,bevelThickness:bev,bevelSize:bev,bevelSegments:3,curveSegments:4}),cx,cy};
+}
+function mk(lift,i){const m=new THREE.Mesh(new THREE.BufferGeometry(),mat());m.userData={lift,i,h:0,z:0,vz:0,rx:0,vrx:0,ry:0,vry:0,t0:0};group.add(m);return m}
+function layout(){
+  W=hero.clientWidth;H=hero.clientHeight;portrait=H>W*1.0;
+  R.setSize(W,H,false);cam.aspect=W/H;cam.position.z=H/2/Math.tan(THREE.MathUtils.degToRad(15));cam.updateProjectionMatrix();
+  key.position.set(-W*.6,H*.8,W*.8);
+  const mx=W<600?16:W*.055,my=H<600?16:H*.085;
+  bw=W-2*mx;bh=H-2*my-(W<600?0:0);S=bw/1730;if(portrait)S=Math.max(S,bw/1000);
+  navH=bh*.108;panelH=bh-navH-14;panelTop=-bh/2+navH+14;
+  // overlay
+  Object.assign(ov.style,{left:(W/2-bw/2)+'px',top:(H/2-bh/2)+'px',width:bw+'px',height:bh+'px'});
+  ov.style.setProperty('--S',Math.min(1,bw/1730).toFixed(3));ov.style.setProperty('--pw',bw+'px');ov.style.setProperty('--ph',panelH+'px');
+  const nv=ov.querySelector('.nav'),pn=ov.querySelector('.panel');nv.style.height=navH+'px';pn.style.height=panelH+'px';
+  // nav slab
+  if(!nav)nav=mk(32,0);
+  const nx=bw/2,ny=bh/2,pts=[[-nx,ny],[-nx,ny-navH],[nx,ny-navH],[nx,ny]];
+  const n=geo(pts);nav.geometry.dispose();nav.geometry=n.g;nav.userData.home=[n.cx,n.cy];nav.position.set(n.cx,n.cy,0);
+  if(!cells.length)Object.keys(DEF).forEach((k,i)=>{const m=mk(50,i+1);m.userData.k=k;cells.push(m)});
+}
+function build(t){
+  const P={},px=mp.x,py=mp.y; // pointer in panel-normalised
+  for(const k in B){
+    let [x,y]=B[k];const p=PH[k];
+    x+=.03*Math.sin(t*6.283/p[2]+p[0]);
+    if(k[0]==='J')y+=.05*Math.sin(t*6.283/(p[2]+3)+p[1]);
+    if(mp.on&&k[0]!=='b'&&k[0]!=='t'||mp.on){const dx=x-px,dy=y-py,d=Math.hypot(dx,dy);if(d<.6&&d>1e-4){const f=.05*(1-d/.6);x+=dx/d*f;y+=dy/d*f}}
+    P[k]=[x,y];
+  }
+  const pw=bw,ph=panelH;
+  cells.forEach(m=>{
+    const poly=DEF[m.userData.k].map(k=>{let [x,y]=P[k];if(portrait)[x,y]=[y,x];return[-bw/2+x*pw,panelTop+ph-y*ph]});
+    const old=m.geometry;const r=geo(poly);m.geometry=r.g;old.dispose();m.userData.home=[r.cx,r.cy];
+  });
+}
+const mp={x:.5,y:.5,on:false},ptr={x:0,y:0,tx:0,ty:0,in:false,cx:-1,cy:-1};
+addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();ptr.cx=e.clientX-r.left;ptr.cy=e.clientY-r.top;ptr.in=ptr.cy>=0&&ptr.cy<=r.height;});
+document.addEventListener('pointerleave',()=>ptr.in=false);
+const ray=new THREE.Raycaster(),ndc=new THREE.Vector2(),all=()=>[nav,...cells];
+const spring=(o,k,t,dt)=>{const U=o.userData;U[k+'v']=U[k+'v']||0};
+function step(u,p,v,t,dt){const a=170*(t-u[p])-19*u[v];u[v]+=a*dt;u[p]+=u[v]*dt}
+const ease=x=>{const c=1.70158,c3=c+1;return 1+c3*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+let last=performance.now(),t0=last,visible=true,acc=0,gl=0;
+new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(hero);
+layout();
+addEventListener('resize',()=>{layout()});
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt=Math.min(.05,(now-last)/1000);last=now;if(!visible)return;
+  const t=(now-t0)/1000;
+  // tilt
+  const tx=ptr.in?(ptr.cx/W-.5)*2:0,ty=ptr.in?(ptr.cy/H-.5)*2:0,k=1-Math.exp(-dt/.3);
+  ptr.x+=(tx-ptr.x)*k;ptr.y+=(ty-ptr.y)*k;
+  const ry=ptr.x*7*Math.PI/180-1.2*Math.PI/180,rx=-ptr.y*5.5*Math.PI/180+.8*Math.PI/180;
+  if(!reduce){group.rotation.set(-rx,ry,0);}
+  ov.style.transform=`perspective(${cam.position.z}px) rotateX(${(-group.rotation.x*180/Math.PI).toFixed(3)}deg) rotateY(${(ry*180/Math.PI).toFixed(3)}deg)`;
+  // pointer in world + panel coords
+  const wx=ptr.cx-W/2,wy=-(ptr.cy-H/2);uMouse.value.set(wx,wy,0);
+  gl+=((ptr.in?1:0)-gl)*(1-Math.exp(-dt/.25));uGlow.value=gl;
+  mp.on=ptr.in;let nxp=(wx+bw/2)/bw,nyp=(panelTop+panelH-wy)/panelH;if(portrait)[nxp,nyp]=[nyp,nxp];
+  mp.x=(portrait?(wy*-1+panelTop+panelH)/panelH:nxp);mp.y=nyp;if(portrait){mp.x=(panelTop+panelH-wy)/panelH;mp.y=(wx+bw/2)/bw}
+  acc+=dt;if(!reduce&&acc>1/45){acc=0;build(t)}else if(!cells[0].userData.home)build(t);
+  // hover pick
+  let hit=null;
+  if(ptr.in){ndc.set(ptr.cx/W*2-1,-(ptr.cy/H)*2+1);ray.setFromCamera(ndc,cam);const h=ray.intersectObjects(all(),false)[0];hit=h&&h.object}
+  all().forEach(m=>{
+    const U=m.userData,on=m===hit,s=S;
+    U.h+=((on?1:0)-U.h)*(1-Math.exp(-dt/.12));
+    step(U,'z','vz',on?U.lift*s:0,dt);
+    let trx=0,try_=0;
+    if(on){const dx=wx-U.home[0],dy=wy-U.home[1],sz=Math.max(120,Math.min(bw,panelH)*.3);try_=THREE.MathUtils.clamp(dx/sz*.24,-.24,.24);trx=THREE.MathUtils.clamp(-dy/sz*.24,-.24,.24)}
+    step(U,'ry','vry',try_,dt);step(U,'rx','vrx',trx,dt);
+    // intro fly-in
+    const ti=Math.min(1,Math.max(0,(t-.08-U.i*.06)/.72)),e=ease(ti),off=1-e;
+    m.position.set(U.home[0],U.home[1]-off*90*S,U.z+off*-500*S);
+    m.rotation.set(U.rx+off*.5,U.ry-off*.35,0);
+    m.visible=ti>0;
+    m.material.iridescence=.55+.45*U.h;m.material.envMapIntensity=1+.9*U.h;
+  });
+  R.render(scene,cam);
+}
+requestAnimationFrame(frame);
+}catch(err){console.warn(err);document.body.classList.add('static')}
+</script>
+</body>
+</html>
